@@ -3,6 +3,24 @@
         window.addEventListener('swal',function(e){ 
         Swal.fire(e.detail);
           });
+
+          window.addEventListener('openAddEmployeeModal', function () {
+            $('.addEmployee').find('span').html('');
+          $('.addEmployee').find('form')[0].reset();
+          $('.addEmployee').modal('show'); 
+            }); 
+
+            window.addEventListener('closeAddEmployeeModal', function() {
+              $('.addEmployee').find('span').html('');
+              $('.addEmployee').find('form')[0].reset();
+              $('.addEmployee').modal('hide');
+
+              Swal.fire({
+                        title: 'Success!',
+                        text: 'Data Berhasil di Buat !!',
+                        icon: 'success',
+                        });
+            });
       </script>
 
 {{-- @if ($showUpdate)
@@ -11,9 +29,8 @@
 
     <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Store</h3>
-          <a href="{{ route('store.create') }}"class="btn btn-sm btn-primary ml-3">Create</a>
-          <button  hidden></button>
+          <h3 class="card-title">Employee</h3>
+          <a wire:click="openAddEmployeeModal()" class="btn btn-sm btn-primary ml-3">Create</a> 
         </div>
       <div class="card-body">
                <div class="form-group">
@@ -119,5 +136,9 @@
     </div>
     
     </div>
-    
+    @include('livewire.admin.employee.create-modal')
+
+
+
+    @include('livewire.admin.team.create-modal')
 </div>

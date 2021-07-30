@@ -11,8 +11,8 @@
           @csrf
 
             <div class="form-group">
-              <label for="exampleInputEmail1">Dept</label>
-              <input wire:model="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Dept" name="name" autofocus>
+              <label for="createdept">Dept</label>
+              <input wire:model="name" type="text" class="form-control" id="createdept" placeholder="Enter Dept" name="name" autofocus>
               <span class="text-danger">@error('name'){{ $message }}@enderror</span>
             </div>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
